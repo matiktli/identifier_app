@@ -4,7 +4,7 @@ from py_camera_module.FaceDetector import FaceDetector
 
 RESOURCE_PATH = 'resources'
 CLASIFIER_PATH = RESOURCE_PATH + '/haarcascade_frontalface_default.xml'
-FACE_DATA_PATH = RESOURCE_PATH + '/face_data'
+FACE_DATA_PATH = RESOURCE_PATH + '/face_data/raw'
 
 studentName = input('Provide student name:\n')
 studentName = studentName.replace(' ', '')

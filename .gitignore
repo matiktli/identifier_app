@@ -1,4 +1,5 @@
 *__pycache__/*
 *.pyc
 resources/face_data/*
+resources/models/*
 .vscode/*

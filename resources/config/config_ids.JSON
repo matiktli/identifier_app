@@ -1,0 +1,12 @@
+{
+  "students": [
+    { "id": 0, "name": "MateuszKitlinski" },
+    { "id": 1, "name": "WieslawaKitlinska" },
+    { "id": 2, "name": "JacekKitlinski" },
+    { "id": 3, "name": "AndrzejKitlinski" },
+    { "id": 4, "name": "KrystynaBogdan" },
+    { "id": 5, "name": "KazimierzKitlinski" },
+    { "id": 6, "name": "KasiaKitlinska" },
+    { "id": 7, "name": "IzaKitlinska" }
+  ]
+}
