@@ -15,6 +15,3 @@ class Learner():
 
     def evaluate_model(self, test_x, test_y):
         self.model.evaluate(test_x, test_y)
-
-    def save_model(self, model_name):
-        self.model.save(model_name)
