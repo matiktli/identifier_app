@@ -22,7 +22,3 @@ def BASE_MODEL(result_options, input_shape=(250, 250, 3)):
 
 def load_model(path):
     return tf.keras.models.load_model(path)
-
-
-def save_model(model, model_name):
-    model.save(model_name)
