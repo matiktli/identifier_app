@@ -1,4 +1,4 @@
-from py_identifier.Identifier import CameraIdentifierStrategy, Identifier
+from py_identifier_module.Identifier import CameraIdentifierStrategy, Identifier
 from py_camera_module.Camera import Video
 from py_camera_module.FaceDetector import FaceDetector
 from py_training_module.Models import load_model
