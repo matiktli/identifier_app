@@ -44,17 +44,7 @@ class Identifier():
             predictions == confidence)[1][0]
         return predicted_student_id, confidence
 
-    def attach_info_to_frame(self, frame, student_id, face_data, confidence, i=0):
-        student_name = self.__get_student_name(student_id)
-        text = f'({str(i)})_ {student_name} : {str(confidence)}'
-        cv2.rectangle(
-            frame, (face_data[0], face_data[1]), (face_data[2], face_data[3]), (255, 0, 0), 2)
-        cv2.putText(frame, text, (face_data[0] + 20, face_data[1] + 20),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-        print(f'{text}')
-        return frame
-
-    def __get_student_name(self, student_id):
+    def get_student_name(self, student_id):
         if student_id == -1:
             return '<UNKNOWN>'
         for student in self.student_data:
@@ -76,7 +66,18 @@ class CameraIdentifierStrategy():
                 frame)
             for i, (student_id, face_data, confidence) in enumerate(data):
                 if student_id != -1:
-                    frame = self.identifier.attach_info_to_frame(
-                        frame, student_id, face_data, confidence, i)
+                    student_name = self.identifier.get_student_name(
+                        student_id)
+                    frame = self.attach_info_to_frame(
+                        frame, student_id, student_name, face_data, confidence, i)
             frame = format_frame_by_scale(frame, 0.7)
             cv2.imshow('I CAN SEE YOU', frame)
+
+    def attach_info_to_frame(self, frame, student_id, student_name, face_data, confidence, i=0):
+        text = f'({str(i)})_ {student_name} : {str(confidence)}'
+        cv2.rectangle(
+            frame, (face_data[0], face_data[1]), (face_data[2], face_data[3]), (255, 0, 0), 2)
+        cv2.putText(frame, text, (face_data[0] + 20, face_data[1] + 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        print(f'{text}')
+        return frame
