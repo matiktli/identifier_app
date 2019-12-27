@@ -13,5 +13,15 @@ Application for student face identification
 
 #### Learning faces from extracted data:
 
-- `cd ../py_training_module`
-- TBD
+- `cd ../` & `python main_train.py`
+- To verify training results `python main_test.py` that simply evaluate model
+
+#### Identifying students:
+
+- To start identifying students from local camera run `main_identify.py`
+
+
+### Examples:
+
+First try with model trained on 8 people X 100photos per person
+![](resources/git_examples/first_try_example.gif)

@@ -9,7 +9,7 @@ class PhotoCapture():
         self.source = source
         self.face_detector = face_detector
 
-    def start_recording_faces_to_folder(self, path, size=(250, 250), number_of_faces_to_record=200):
+    def start_recording_faces_to_folder(self, path, size=(250, 250), number_of_faces_to_record=200, manual=False):
         faces_counter = 0
 
         while (faces_counter < number_of_faces_to_record):
@@ -27,6 +27,8 @@ class PhotoCapture():
                 print(f'({faces_counter})[FACE_DETECTED] - {path}')
                 self.__save_img(face_frame, path, str(faces_counter))
                 faces_counter += 1
+                if manual:
+                    input('Next frame, press any key')
 
     def __save_img(self, frame, path, name):
         if not os.path.exists(path):
