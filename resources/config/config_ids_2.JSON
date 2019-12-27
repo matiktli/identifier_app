@@ -1,0 +1,7 @@
+{
+  "students": [
+    { "id": 0, "name": "AndrzejKitlinski" },
+    { "id": 1, "name": "KasiaKitlinska" },
+    { "id": 2, "name": "MateuszKitlinski" }
+  ]
+}

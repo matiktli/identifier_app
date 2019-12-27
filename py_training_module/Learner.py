@@ -27,5 +27,5 @@ class Learner():
     def evaluate_model(self):
         self.model.evaluate(self.test_x, self.test_y)
 
-    def save_model(self, path, model_name):
-        self.model.save(path + '/' + model_name)
+    def save_model(self, path):
+        self.model.save(path)

@@ -20,7 +20,7 @@ def __load_single_student_images(path):
     return result
 
 
-def load_all_students_images(path, student_data):
+def __load_all_students_images(path, student_data):
     result = {}
     print(f'\n--Loading students data:')
     for student in student_data:
@@ -41,7 +41,7 @@ def __save_images_batch_to_folder(image_batch, student_id, path):
         counter += 1
 
 
-def split_images_for_train_and_test(data, train_path, test_path, vector=0.8):
+def __split_images_for_train_and_test(data, train_path, test_path, vector=0.8):
     print(f'\n--Splitting students data:')
     whole_size = len(data[list(data.keys())[0]])
     train_size = int(whole_size * vector)
@@ -60,8 +60,11 @@ def split_images_for_train_and_test(data, train_path, test_path, vector=0.8):
             student_test_imgs, student_id, test_path)
 
 
-STUDENTS = get_config_json(CONFIG_PATH)['students']
+# Main func of file
+def main_spliter(config_file_path=CONFIG_PATH, raw_folder_path=RAW_PATH, train_path=TRAIN_PATH, test_path=TEST_PATH):
+    students = get_config_json(config_file_path)['students']
+    data = __load_all_students_images(raw_folder_path, students)
+    __split_images_for_train_and_test(data, train_path, test_path, 0.8)
 
-data = load_all_students_images(RAW_PATH, STUDENTS)
 
-split_images_for_train_and_test(data, TRAIN_PATH, TEST_PATH, 0.8)
+main_spliter()

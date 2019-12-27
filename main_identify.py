@@ -6,17 +6,23 @@ from utils.config_utils import get_config_json
 
 RESOURCE_PATH = 'resources'
 CLASSIFIER_PATH = RESOURCE_PATH + '/haarcascade_frontalface_default.xml'
-MODEL_PATH = RESOURCE_PATH + '/models/' + 'model_1.h5'
-STUDENT_IDS_CONFIG_PATH = RESOURCE_PATH + '/config/config_ids.JSON'
+MODEL_PATH = RESOURCE_PATH + '/models/' + 'model_2_2.h5'
+STUDENT_IDS_CONFIG_PATH = RESOURCE_PATH + '/config/config_ids_2.JSON'
 
-student_data = get_config_json(STUDENT_IDS_CONFIG_PATH)['students']
 
-video_source = Video()
-face_detector = FaceDetector(CLASSIFIER_PATH)
-model = load_model(MODEL_PATH)
+# Main func of file
+def main_identifier(config_file_path=STUDENT_IDS_CONFIG_PATH, classifier_path=CLASSIFIER_PATH, model_path=MODEL_PATH):
+    student_data = get_config_json(config_file_path)['students']
 
-identifier = Identifier(face_detector, model, student_data)
+    video_source = Video()
+    face_detector = FaceDetector(classifier_path)
+    model = load_model(model_path)
 
-camera_identifier = CameraIdentifierStrategy(video_source, identifier)
+    identifier = Identifier(face_detector, model, student_data)
 
-camera_identifier.start_identification()
+    camera_identifier = CameraIdentifierStrategy(video_source, identifier)
+
+    camera_identifier.start_identification()
+
+
+main_identifier()

@@ -1,22 +1,12 @@
 import os
 import json
+from .config_utils import *
 
 CONFIG_PATH = '../resources/config/config_ids.JSON'
 FACE_DATA_PATH = '../resources/face_data/raw'
 
 
-def get_config_json(path=CONFIG_PATH):
-    with open(path, 'r') as config_file:
-        data = json.load(config_file)
-        return data
-
-
-def save_config_json(data, path=CONFIG_PATH):
-    with open(path, 'w') as config_file:
-        json.dump(data, config_file)
-
-
-def assign_new_people(data, path=FACE_DATA_PATH):
+def __assign_new_people(data, path=FACE_DATA_PATH):
     existing_ids = list(map(lambda student:
                             student['name'], data['students']))
 
@@ -32,6 +22,11 @@ def assign_new_people(data, path=FACE_DATA_PATH):
     return data
 
 
-config_data = get_config_json()
-config_data = assign_new_people(config_data)
-save_config_json(config_data)
+# Main func of file
+def main_id_assigner(config_file_path=CONFIG_PATH, raw_folder_path=FACE_DATA_PATH):
+    config_data = get_config_json(config_file_path)
+    config_data = __assign_new_people(config_data, raw_folder_path)
+    save_config_json(config_data, config_file_path)
+
+
+main_id_assigner()
