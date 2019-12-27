@@ -3,3 +3,4 @@
 resources/face_data/*
 resources/models/*
 .vscode/*
+*.DS_Store
