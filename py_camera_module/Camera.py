@@ -10,7 +10,7 @@ class Video():
     def read_frame(self):
         ret, frame = self.source.read()
 
-        if cv2.waitKey(1) and 0xFF == ord('q'):
+        if cv2.waitKey(10) and 0xFF == ord('q'):
             return None
         return frame
 
