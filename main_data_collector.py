@@ -23,7 +23,7 @@ def main_data_collector(raw_folder_path=FACE_DATA_PATH, classifier_path=CLASIFIE
     input('[FACE DATA WILL BE COLLECTED] - press any key to start...')
 
     faceCollector.start_recording_faces_to_folder(
-        path=path_to_save, number_of_faces_to_record=numberOfFaces)
+        path=path_to_save, number_of_faces_to_record=numberOfFaces, manual=True)
 
 
 main_data_collector()
