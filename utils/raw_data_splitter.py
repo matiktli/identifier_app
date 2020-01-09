@@ -9,7 +9,7 @@ RESOURCE_PATH = '../resources'
 RAW_PATH = RESOURCE_PATH + '/face_data/raw'
 TEST_PATH = RESOURCE_PATH + '/face_data/test'
 TRAIN_PATH = RESOURCE_PATH + '/face_data/train'
-CONFIG_PATH = RESOURCE_PATH + '/config/config_ids_3.JSON'
+CONFIG_PATH = RESOURCE_PATH + '/config/config_ids_4.JSON'
 
 
 def __load_single_student_images(path):

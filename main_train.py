@@ -9,11 +9,11 @@ TRAIN_PATH = RESOURCE_PATH + '/face_data/train'
 TEST_PATH = RESOURCE_PATH + '/face_data/test'
 MODELS_PATH = RESOURCE_PATH + '/models'
 
-MODELS_PATH = MODELS_PATH + '/model_2_2.h5'
+MODELS_PATH = MODELS_PATH + '/model_4_gray.h5'
 
 
 # Main func of file
-def main_train(train_folder_path=TRAIN_PATH, test_folder_path=TEST_PATH, model_path=MODELS_PATH, possible_choices=3):
+def main_train(train_folder_path=TRAIN_PATH, test_folder_path=TEST_PATH, model_path=MODELS_PATH, possible_choices=9, epochs=20, steps=8):
     train_x, train_y = DL.load_data(train_folder_path)
     test_x, test_y = DL.load_data(test_folder_path)
 
@@ -25,7 +25,7 @@ def main_train(train_folder_path=TRAIN_PATH, test_folder_path=TEST_PATH, model_p
     learner.attach_model(model)
     learner.attach_train_data(train_x, train_y)
     learner.attach_test_data(test_x, test_y)
-    learner.train_model(epochs=20, steps_per_epoch=8)
+    learner.train_model(epochs=10, steps_per_epoch=16)
     learner.evaluate_model()
     learner.save_model(model_path)
 

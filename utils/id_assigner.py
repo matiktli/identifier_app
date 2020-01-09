@@ -2,7 +2,7 @@ import os
 import json
 from config_utils import *
 
-CONFIG_PATH = '../resources/config/config_ids_3.JSON'
+CONFIG_PATH = '../resources/config/config_ids_4.JSON'
 FACE_DATA_PATH = '../resources/face_data/raw'
 
 

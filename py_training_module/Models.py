@@ -20,5 +20,9 @@ def BASE_MODEL(result_options, input_shape=(250, 250, 3)):
     return model
 
 
+def YOLOv3(result_options, input_shape=(250, 250, 3)):
+    return None
+
+
 def load_model(path):
     return tf.keras.models.load_model(path)

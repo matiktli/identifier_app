@@ -8,7 +8,7 @@ Application for student face identification
 
 - Collect face data by running `main_data_collector.py`
 - `cd utils`
-- Use `python file_renamer.py` & `python id_assigner.py` to prepare data before splitting it
+- Use `python file_renamer.py` & `python file_transformer.py` & `python id_assigner.py` to prepare data before splitting it
 - Use `python raw_data_splitter.py` to split data into train and test folders
 
 #### Learning faces from extracted data:
@@ -25,3 +25,7 @@ Application for student face identification
 
 First try with model trained on 8 people X 100photos per person
 ![](resources/git_examples/first_try_example.gif)
+
+### Models
+
+https://drive.google.com/open?id=1ETMMRkSKN3qR1mNPOqJ9gYit7AzsDVUD
