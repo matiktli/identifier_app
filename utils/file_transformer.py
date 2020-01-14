@@ -1,6 +1,6 @@
 import os
 import json
-from config_utils import *
+from .config_utils import *
 import cv2
 import numpy as np
 
@@ -56,8 +56,8 @@ def __transform_single_student_folder(student_folder_path):
 def main_transform_raw_data(raw_folder_path=RAW_DATA_PATH):
     for dir_name in os.listdir(raw_folder_path):
         student_folder_path = raw_folder_path + '/' + dir_name
-        if os.path.isdir(student_folder_path) and dir_name == 'MateuszKitlinski':
+        if os.path.isdir(student_folder_path):
             __transform_single_student_folder(student_folder_path)
 
 
-main_transform_raw_data(RAW_DATA_PATH)
+# main_transform_raw_data(RAW_DATA_PATH)

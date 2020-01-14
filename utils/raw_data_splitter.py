@@ -1,7 +1,7 @@
 import os
 import cv2
 import numpy as np
-from id_assigner import get_config_json
+from .id_assigner import get_config_json
 import random
 
 RESOURCE_PATH = '../resources'
@@ -67,4 +67,4 @@ def main_spliter(config_file_path=CONFIG_PATH, raw_folder_path=RAW_PATH, train_p
     __split_images_for_train_and_test(data, train_path, test_path, 0.8)
 
 
-main_spliter()
+# main_spliter()

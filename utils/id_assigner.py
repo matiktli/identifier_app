@@ -1,6 +1,6 @@
 import os
 import json
-from config_utils import *
+from .config_utils import *
 
 CONFIG_PATH = '../resources/config/config_ids_4.JSON'
 FACE_DATA_PATH = '../resources/face_data/raw'
@@ -29,4 +29,4 @@ def main_id_assigner(config_file_path=CONFIG_PATH, raw_folder_path=FACE_DATA_PAT
     save_config_json(config_data, config_file_path)
 
 
-main_id_assigner()
+# main_id_assigner()

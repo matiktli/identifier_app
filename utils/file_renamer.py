@@ -25,6 +25,3 @@ def __rename_files(raw_folder_path):
 # Main func of file
 def main_renamer(raw_folder_path=RAW_DATA_PATH):
     __rename_files(raw_folder_path)
-
-
-main_renamer()

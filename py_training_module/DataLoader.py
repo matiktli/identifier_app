@@ -11,7 +11,6 @@ def load_data(path):
         img_data = cv2.cvtColor(img_data, cv2.COLOR_BGR2GRAY)
         img_data = np.array(img_data)
         img_data = np.expand_dims(img_data, axis=3)
-        img_data = np.concatenate((img_data,) * 3, axis=-1)
 
         data_x.append(img_data)
 

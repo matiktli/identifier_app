@@ -6,8 +6,8 @@ from utils.config_utils import get_config_json
 
 RESOURCE_PATH = 'resources'
 CLASSIFIER_PATH = RESOURCE_PATH + '/haarcascade_frontalface_default.xml'
-MODEL_PATH = RESOURCE_PATH + '/models/' + 'model_4_gray.h5'
-STUDENT_IDS_CONFIG_PATH = RESOURCE_PATH + '/config/config_ids_4.JSON'
+MODEL_PATH = RESOURCE_PATH + '/models/' + 'test_3.h5'
+STUDENT_IDS_CONFIG_PATH = RESOURCE_PATH + '/config/test_3.JSON'
 
 
 # Main func of file
@@ -25,4 +25,4 @@ def main_identifier(config_file_path=STUDENT_IDS_CONFIG_PATH, classifier_path=CL
     camera_identifier.start_identification()
 
 
-main_identifier()
+# main_identifier()

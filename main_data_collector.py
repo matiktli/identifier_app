@@ -26,4 +26,4 @@ def main_data_collector(raw_folder_path=FACE_DATA_PATH, classifier_path=CLASIFIE
         path=path_to_save, number_of_faces_to_record=numberOfFaces, manual=True)
 
 
-main_data_collector()
+# main_data_collector()

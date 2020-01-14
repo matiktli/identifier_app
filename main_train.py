@@ -9,25 +9,25 @@ TRAIN_PATH = RESOURCE_PATH + '/face_data/train'
 TEST_PATH = RESOURCE_PATH + '/face_data/test'
 MODELS_PATH = RESOURCE_PATH + '/models'
 
-MODELS_PATH = MODELS_PATH + '/model_4_gray.h5'
+MODELS_PATH = MODELS_PATH + '/model_5_new_model.h5'
 
 
 # Main func of file
-def main_train(train_folder_path=TRAIN_PATH, test_folder_path=TEST_PATH, model_path=MODELS_PATH, possible_choices=9, epochs=20, steps=8):
+def main_train(train_folder_path=TRAIN_PATH, test_folder_path=TEST_PATH, model_path=MODELS_PATH, possible_choices=3, epochs=10, steps=8):
     train_x, train_y = DL.load_data(train_folder_path)
     test_x, test_y = DL.load_data(test_folder_path)
 
     print(len(train_x), '-', len(train_y), '-', len(test_x), '-', len(test_y))
     print(f'\nInput shape: {train_x.shape}')
 
-    model = M.BASE_MODEL(possible_choices, (250, 250, 3))
+    model = M.BASE_MODEL(possible_choices, (250, 250, 1))
     learner = L.Learner()
     learner.attach_model(model)
     learner.attach_train_data(train_x, train_y)
     learner.attach_test_data(test_x, test_y)
-    learner.train_model(epochs=10, steps_per_epoch=16)
+    learner.train_model(epochs=epochs, steps_per_epoch=steps)
     learner.evaluate_model()
     learner.save_model(model_path)
 
 
-main_train()
+# main_train(epochs=1, possible_choices=9)

@@ -16,8 +16,17 @@ class Video():
 
 
 def format_frame_by_size(frame, size=(250, 250)):
-    frame = cv2.resize(frame, size)
-    return frame
+    if frame.any():
+        return cv2.resize(frame, size)
+    return np.zeros(size)
+
+
+def format_frame_by_dim_to_grayscale(frame):
+    r, g, b = frame[:, :, 0], frame[:, :, 1], frame[:, :, 2]
+    gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
+    gray = gray.astype(int)
+    gray = np.expand_dims(gray, axis=3)
+    return gray
 
 
 def format_frame_by_scale(frame, scale=1):

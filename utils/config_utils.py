@@ -1,7 +1,10 @@
 import json
+import os.path
 
 
 def get_config_json(path):
+    if not os.path.isfile(path):
+        return {'students': []}
     with open(path, 'r') as config_file:
         data = json.load(config_file)
         return data

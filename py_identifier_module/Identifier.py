@@ -1,4 +1,4 @@
-from py_camera_module.Camera import Video, format_frame_by_size, format_frame_extract_rectangle, format_frame_by_scale
+from py_camera_module.Camera import Video, format_frame_by_size, format_frame_by_dim_to_grayscale, format_frame_extract_rectangle, format_frame_by_scale
 from py_camera_module.FaceDetector import FaceDetector
 import tensorflow as tf
 import numpy as np
@@ -30,10 +30,12 @@ class Identifier():
         try:
             frame = format_frame_extract_rectangle(frame, face_data)
             frame = format_frame_by_size(frame, (250, 250))
+            frame = format_frame_by_dim_to_grayscale(frame)
             return frame
         except Exception as ex:
             print(str(ex))
-            return np.zeros((250, 250, 3))
+            # input('proc -> [enter]')
+            return np.zeros((250, 250, 1))
 
     def __make_prediction_for_student_id(self, valid_frame):
         valid_frame = tf.expand_dims(valid_frame, axis=0)
@@ -81,3 +83,21 @@ class CameraIdentifierStrategy():
                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         print(f'{text}')
         return frame
+
+
+class RequestIdentifierStrategy():
+
+    def __init__(self, identifier):
+        self.identifier = identifier
+
+    def get_students_prediction(self, frame, max_faces=1) -> []:
+        data = self.identifier.predict_student_from_frame(frame, max_faces)
+        result = []
+        for student_id, face_data, acc in data:
+            if student_id not in list(map(lambda s: s['student_id'], result)):
+                result.append({
+                    'student_id': student_id,
+                    'face_data': face_data,
+                    'accuracy': acc
+                })
+        return result
